@@ -112,7 +112,7 @@ namespace preWork
             return intConvert;
         }
 
-
+         //Builds new string with variables we collected.
         public static void Result(char charToRepeat, int timesToRepeat)
         {
             string result = new String(charToRepeat, timesToRepeat);
