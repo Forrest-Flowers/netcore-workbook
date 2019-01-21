@@ -43,13 +43,24 @@ namespace ToDoApp.Services
             //create new object (Todo) and append values from collection
 
             //once new object is created, add new todo from the list.
+
+            ToDo newTodo = new ToDo()
+            {
+                Id = Convert.ToInt32(collection["Id"]),
+                Title = collection["Title"],
+                Description = collection["Description"],
+                Status = status[1]
+            };
+
+            list.Add(newTodo);
         }
 
         public static void DeleteTodo(int id)
         {
             //Find todo by Id
-
+            var DeleteTodo = list.SingleOrDefault(t => t.Id == id);
             //Delete from list
+            list.Remove(DeleteTodo);
 
         }
     }
