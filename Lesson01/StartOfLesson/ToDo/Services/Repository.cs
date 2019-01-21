@@ -27,13 +27,19 @@ namespace ToDoApp.Services
             return todo;
         }
 
-        public static void SaveTodo(int id, IFormCollection collection)
+        public static List<ToDo> SaveTodo(int id, IFormCollection collection)
         {
             //get current todo based on id
-            
+
             //overwrite each property with values from collection
 
             //return same todo
+
+            list.Where(t1 => t1.Id == id).ToList().ForEach(t2 => t2.Title = collection["Title"]);
+            list.Where(t3 => t3.Id == id).ToList().ForEach(t4 => t4.Description = collection["Description"]);
+            list.Where(t5 => t5.Id == id).ToList().ForEach(t6 => t6.Status = status[2]);
+
+            return list;
         }
 
         public static void CreateTodo(IFormCollection collection)
