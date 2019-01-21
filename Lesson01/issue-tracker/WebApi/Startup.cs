@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using System.Linq;
 using IssueTracker.Data.Repositories;
 using IssueTracker.Domain.Internal.Contracts;
@@ -34,7 +35,6 @@ namespace WebApi
         {
             if (env.IsDevelopment())
             {
-using System.Threading.Tasks;
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
             }
