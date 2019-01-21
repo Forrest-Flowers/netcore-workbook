@@ -49,7 +49,7 @@ namespace ToDoApp.Services
                 Title = "Add ViewComponent",
                 Description = "Should track when the ToDo was created",
                 Status = _statuses[1],
-                Created = DateTime.Today
+                Created = DateTime.Today.AddDays(-8)
             }
         };
 
