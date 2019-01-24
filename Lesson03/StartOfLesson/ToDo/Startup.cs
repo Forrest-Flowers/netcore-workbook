@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using ToDoApp.Middleware;
 
 namespace ToDoApp
 {
@@ -26,6 +28,7 @@ namespace ToDoApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddTransient < LoggerMiddleware>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -45,6 +48,7 @@ namespace ToDoApp
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseMiddleware<LoggerMiddleware>();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
